@@ -4,9 +4,9 @@ import logo from '../resources/CDAC.jpg'
 function Logo() {
   return (
     <>
-        <div className='row'>
+        <div className='row pt-4'>
             <div className='d-flex justify-content-center'>
-                <img className='img-fluid' style={{height:"300px"}} src={logo} alt=''/>
+                <img className='img-fluid' style={{width:"100%", maxWidth:"350px", height:"auto"}} src={logo} alt=''/>
             </div>
         </div>
     </>
