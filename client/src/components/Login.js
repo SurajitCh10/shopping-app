@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Logo from './Logo'
 
 function Login() {
+  useEffect(() => {
+    document.title = 'Login'
+  })
+
   return (
-    <div>Login</div>
+    <>
+      <Logo/>
+
+      <div className='row'>
+            <div className='d-flex justify-content-center'>
+                
+            </div>
+        </div>
+    </>
   )
 }
 
