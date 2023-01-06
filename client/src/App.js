@@ -19,7 +19,7 @@ class App extends Component {
             <Route path='register' element={<Register/>}/>
             <Route path='admin/:id' element={<Admin/>}/>
             <Route path='landing' element={<Landing/>}/>
-            <Route path='' element={<Landing/>}/>
+            <Route path='' element={<Menu/>}/>
             <Route path='menu' element={<Menu/>}/>
             <Route path='submenu/:id' element={<Submenu/>}/>
             <Route path='upload' element={<Upload/>}/>
