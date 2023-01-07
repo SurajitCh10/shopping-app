@@ -1,19 +1,20 @@
-const mysql = require('mysql');
+const mariadb = require('mariadb');
 
-const conn = mysql.createConnection({
-    
+const pool = mariadb.createPool({
     host: 'localhost',
-    user: 'node',
-    password: 'node',
-    database: 'c_kart_data'
-
+    user: 'demo',
+    password: 'demo',
+    database: 'c_kart',
+    connectionLimit: 5
 });
 
-conn.connect( (err) => {
-    if(err)
-        throw err;
-    else {
-        console.log('MySQL connection successful');
+pool.getConnection((err, connection) => {
 
-    }
+    if(err) console.log('Database connection error');
+
+    if(connection) connection.release();
+    
+    return;
 });
+
+module.exports = pool;
