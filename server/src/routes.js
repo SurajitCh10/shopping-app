@@ -8,7 +8,7 @@ router.post('/register', async (req, res) => {
 
     try {
         const {name, email} = req.body;
-        const sqlQuery = 'INSERT INTO user (name, email) VALUES (?, ?)';
+        const sqlQuery = 'INSERT INTO ' + table + ' (name, email) VALUES (?, ?)';
         const result = await pool.query(sqlQuery, [name, email]);
 
         res.status(201).send();
