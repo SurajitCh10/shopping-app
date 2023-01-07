@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import Logo from './Logo'
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import { Link } from 'react-router-dom';
-import {BsChevronDown} from 'react-icons/bs'
-import upload from '../resources/upload.jpeg'
-import electr from '../resources/electr.jpeg'
-import grocery from '../resources/grocery.png'
-import book from '../resources/book.jpg'
+import React, { useEffect, useState } from "react";
+import Logo from "./Logo";
+import Navbar from "./Navbar";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import { Link } from "react-router-dom";
+import { BsChevronDown } from "react-icons/bs";
+import upload from "../resources/upload.jpeg";
+import electr from "../resources/electr.jpeg";
+import grocery from "../resources/grocery.jpeg";
+import book from "../resources/book.jpeg";
 
 function Menus() {
-  useEffect(() =>{
-    document.title = 'Menu'
-  })
+  useEffect(() => {
+    document.title = "Menu";
+  });
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -29,26 +27,39 @@ function Menus() {
     setAnchorEl(null);
   };
 
-  
   return (
     <>
-      <Logo/>
-      <div className='row pt-4 mt-4 ml-3 pb-3'> 
-        <div className='col-3'>
-          <Link to="/upload" style ={{textDecoration: "none"}}>
-            <Card sx={{marginLeft:10, maxWidth: 345 }} style={{textAlign: "center",}}>
-              <CardActionArea >
-                <div className='d-flex justify-content-center'>
+      <Navbar />
+
+      <div
+        style={{
+          transform: "translate(0%, 60%)",
+        }}
+        className="row pt-4 mt-4 ml-3 pb-3"
+      >
+        <div className="col-3">
+          <Link to="/upload" style={{ textDecoration: "none" }}>
+            <Card
+              sx={{ marginLeft: 10, maxWidth: 345 }}
+              style={{ textAlign: "center" }}
+            >
+              <CardActionArea>
+                <div className="d-flex justify-content-center">
                   <CardMedia
                     component="img"
                     backgroundColor="Black"
                     image={upload}
-                    style={{width:"100px",height:"100px", justifyContent: "center", display: "flex" }}
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      justifyContent: "center",
+                      display: "flex",
+                    }}
                     className="img-fluid"
                     alt="upload"
                   />
                 </div>
-                
+
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     Upload
@@ -60,22 +71,22 @@ function Menus() {
               </CardActionArea>
             </Card>
           </Link>
-        </div>  
-        <div className='col-3'>
-          <Link to="/submenu/1" style ={{textDecoration: "none"}}>
-            <Card sx={{ maxWidth: 345 }} style={{textAlign: "center" }}>
+        </div>
+        <div className="col-3">
+          <Link to="/submenu/1" style={{ textDecoration: "none" }}>
+            <Card sx={{ maxWidth: 345 }} style={{ textAlign: "center" }}>
               <CardActionArea>
-                <div className='d-flex justify-content-center'>
+                <div className="d-flex justify-content-center">
                   <CardMedia
                     component="img"
                     backgroundColor="Black"
                     image={electr}
-                    style={{width:"100px",height:"100px"}}
+                    style={{ width: "100px", height: "100px" }}
                     className="img-fluid"
                     alt="upload"
                   />
                 </div>
-                
+
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     Electonics
@@ -86,25 +97,24 @@ function Menus() {
                 </CardContent>
               </CardActionArea>
             </Card>
-          </Link>  
-        </div>  
+          </Link>
+        </div>
 
-        <div className='col-3'>
-          <Link to="/submenu/2" style ={{textDecoration: "none"}}>
-            <Card sx={{ maxWidth: 345 }} style={{textAlign: "center" }}>
+        <div className="col-3">
+          <Link to="/submenu/2" style={{ textDecoration: "none" }}>
+            <Card sx={{ maxWidth: 345 }} style={{ textAlign: "center" }}>
               <CardActionArea>
+                <div className="d-flex justify-content-center">
+                  <CardMedia
+                    component="img"
+                    backgroundColor="Black"
+                    image={grocery}
+                    style={{ width: "100px", height: "100px" }}
+                    className="img-fluid"
+                    alt="upload"
+                  />
+                </div>
 
-              <div className='d-flex justify-content-center'>
-                <CardMedia
-                  component="img"
-                  backgroundColor="Black"
-                  image={grocery}
-                  style={{width:"100px",height:"100px"}}
-                  className="img-fluid"
-                  alt="upload"
-                />
-              </div>
-                
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     Grocery
@@ -115,24 +125,24 @@ function Menus() {
                 </CardContent>
               </CardActionArea>
             </Card>
-          </Link>  
-        </div>  
-        
-        <div className='col-3'>
-          <Link to="/submenu/3" style ={{textDecoration: "none"}}>
-            <Card sx={{ maxWidth: 345 }} style={{textAlign: "center" }}>
+          </Link>
+        </div>
+
+        <div className="col-3">
+          <Link to="/submenu/3" style={{ textDecoration: "none" }}>
+            <Card sx={{ maxWidth: 345 }} style={{ textAlign: "center" }}>
               <CardActionArea>
-              <div className='d-flex justify-content-center'>
-                <CardMedia
-                  component="img"
-                  backgroundColor="Black"
-                  image={book}
-                  style={{width:"100px",height:"100px"}}
-                  className="img-fluid"
-                  alt="upload"
-                />
-              </div>
-                
+                <div className="d-flex justify-content-center">
+                  <CardMedia
+                    component="img"
+                    backgroundColor="Black"
+                    image={book}
+                    style={{ width: "100px", height: "100px" }}
+                    className="img-fluid"
+                    alt="upload"
+                  />
+                </div>
+
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     Books
@@ -143,27 +153,13 @@ function Menus() {
                 </CardContent>
               </CardActionArea>
             </Card>
-          </Link>  
-        </div>  
-
-      </div> 
-
-      <div className='d-flex justify-content-center pt-4 mt-4'
-      >
-      <Button
-        style={{
-          borderRadius: 12,
-          backgroundColor: "Red",
-          padding: "10px",
-          fontSize: "18px"
-        }}
-          variant="contained"
-        >
-          Logout
-        </Button>
+          </Link>
+        </div>
       </div>
+
+      <div className="d-flex justify-content-center pt-4 mt-4"></div>
     </>
-  )
+  );
 }
 
-export default Menus
+export default Menus;
