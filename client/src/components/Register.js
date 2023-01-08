@@ -1,15 +1,78 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import { message, Spin } from "antd";
 
 function Register() {
   useEffect(() => {
     document.title = "Register";
   });
+
+  const [name, setName] = useState("");
+  const [nameError, setNameError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [address, setAddress] = useState("");
+  const [addressError, setAddressError] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+  const [cpassword, setCpassword] = useState("");
+  const [cpasswordError, setCpasswordError] = useState("");
+
+  const addToList = () => {
+    setNameError(false);
+    setAddressError(false);
+    setEmailError(false);
+    setPasswordError(false);
+    setCpasswordError(false);
+
+    if (name === "") {
+      setNameError(true);
+      return;
+    }
+    if (email === "") {
+      setEmailError(true);
+      return;
+    }
+    if (address === "") {
+      setAddressError(true);
+      return;
+    }
+    if (password === "") {
+      setPasswordError(true);
+      return;
+    }
+    if (cpassword === "") {
+      setCpasswordError(true);
+      return;
+    }
+
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    Axios.post(
+      "url",
+      {
+        name: name,
+        email: email,
+        address: address,
+        password: password,
+        cpassword: cpassword,
+      },
+      config
+    )
+      .then(function (response) {
+        message.success("Logged in successfully");
+        setTimeout(function () {
+          history.push("/");
+        }, 1000);
+      })
+      .catch(function (error) {
+        message.error(`${error.response.data.message}`);
+      });
+  };
 
   return (
     <>
@@ -29,6 +92,8 @@ function Register() {
             id="outlined-basic"
             label="Name"
             variant="outlined"
+            onChange={(e) => setName(e.target.value)}
+            error={nameError}
           />
         </div>
         <div className=""></div>
@@ -44,6 +109,8 @@ function Register() {
             id="outlined-basic"
             label="Email"
             variant="outlined"
+            onChange={(e) => setEmail(e.target.value)}
+            error={emailError}
           />
         </div>
         <div className="col-lg-4 col-md-3 col-sm-3"></div>
@@ -59,6 +126,8 @@ function Register() {
             id="outlined-basic"
             label="Address"
             variant="outlined"
+            onChange={(e) => setAddress(e.target.value)}
+            error={addressError}
           />
         </div>
         <div className=""></div>
@@ -75,6 +144,8 @@ function Register() {
             id="outlined-basic"
             label="Password"
             variant="outlined"
+            onChange={(e) => setPassword(e.target.value)}
+            error={passwordError}
           />
         </div>
         <div className="col-lg-4 col-md-3 col-sm-3"></div>
@@ -91,6 +162,8 @@ function Register() {
             id="outlined-basic"
             label="Confirm Password"
             variant="outlined"
+            onChange={(e) => setCpassword(e.target.value)}
+            error={cpasswordError}
           />
         </div>
         <div className="col-lg-4 col-md-3 col-sm-3"></div>
@@ -98,7 +171,12 @@ function Register() {
 
       <div className="row pt-3 mt-3">
         <div className="d-flex justify-content-center">
-          <Button style={{ fontSize: "18px" }} size="large" variant="contained">
+          <Button
+            onClick={addToList}
+            style={{ fontSize: "18px" }}
+            size="large"
+            variant="contained"
+          >
             Register
           </Button>
         </div>

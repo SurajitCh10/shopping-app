@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Navbar from "./Navbar";
 import "./Menu.css";
-import axios from "axios";
 
 function Upload() {
   const [file, setFile] = useState();

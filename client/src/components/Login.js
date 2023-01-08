@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -8,6 +8,45 @@ function Login() {
   useEffect(() => {
     document.title = "Login";
   });
+
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+
+  const addToList = () => {
+    setEmailError(false);
+    setPasswordError(false);
+
+    if (email === "") {
+      setEmailError(true);
+      return;
+    }
+    if (password === "") {
+      setPasswordError(true);
+      return;
+    }
+
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    Axios.post(
+      "url",
+      {
+        email: email,
+        password: password,
+      },
+      config
+    )
+      .then(function (response) {
+        message.success("Logged in successfully");
+        setTimeout(function () {
+          history.push("/");
+        }, 1000);
+      })
+      .catch(function (error) {
+        message.error(`${error.response.data.message}`);
+      });
+  };
 
   return (
     <>
@@ -25,6 +64,8 @@ function Login() {
             id="outlined-basic"
             label="Email"
             variant="outlined"
+            onChange={(e) => setEmail(e.target.value)}
+            error={emailError}
           />
         </div>
         <div className="col-4"></div>
@@ -41,6 +82,8 @@ function Login() {
             id="outlined-basic"
             label="Password"
             variant="outlined"
+            onChange={(e) => setPassword(e.target.value)}
+            error={passwordError}
           />
         </div>
         <div className="col-4"></div>
@@ -48,7 +91,12 @@ function Login() {
 
       <div className="row pt-3 mt-3">
         <div className="d-flex justify-content-center">
-          <Button style={{ fontSize: "18px" }} size="large" variant="contained">
+          <Button
+            onClick={addToList}
+            style={{ fontSize: "18px" }}
+            size="large"
+            variant="contained"
+          >
             Login
           </Button>
         </div>
