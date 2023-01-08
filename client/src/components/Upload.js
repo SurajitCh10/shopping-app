@@ -54,7 +54,7 @@ function Upload() {
         <div className="d-flex justify-content-center pt-3 mt-3">
           <Button
             onClick={handleSubmit}
-            style={{ fontSize: "18px" }}
+            style={{ fontSize: "22px" }}
             size="large"
             variant="contained"
           >

@@ -19,7 +19,7 @@ function Register() {
         <h4>Join C-Kart Now</h4>
       </div>
 
-      <div className="row mt-3" style={{ paddingTop: "30px" }}>
+      <div className="row mt-3" style={{ paddingTop: "20px" }}>
         <div className="col-lg-4 col-md-3 col-sm-3"></div>
         <div className="col-lg-4 col-md-6 col-sm-6">
           <TextField
@@ -47,6 +47,21 @@ function Register() {
           />
         </div>
         <div className="col-lg-4 col-md-3 col-sm-3"></div>
+      </div>
+
+      <div className="row" style={{ paddingTop: "10px" }}>
+        <div className="col-lg-4 col-md-3 col-sm-3"></div>
+        <div className="col-lg-4 col-md-6 col-sm-6">
+          <TextField
+            className="fields"
+            fullWidth
+            required
+            id="outlined-basic"
+            label="Address"
+            variant="outlined"
+          />
+        </div>
+        <div className=""></div>
       </div>
 
       <div className="row" style={{ paddingTop: "10px" }}>
