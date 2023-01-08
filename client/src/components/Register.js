@@ -15,9 +15,13 @@ function Register() {
     <>
       <Logo />
 
+      <div className="d-flex justify-content-center pt-2">
+        <h4>Join C-Kart Now</h4>
+      </div>
+
       <div className="row mt-3" style={{ paddingTop: "30px" }}>
-        <div className="col-4"></div>
-        <div className="col-4">
+        <div className="col-lg-4 col-md-3 col-sm-3"></div>
+        <div className="col-lg-4 col-md-6 col-sm-6">
           <TextField
             className="fields"
             fullWidth
@@ -27,12 +31,12 @@ function Register() {
             variant="outlined"
           />
         </div>
-        <div className="col-4"></div>
+        <div className=""></div>
       </div>
 
       <div className="row" style={{ paddingTop: "10px" }}>
-        <div className="col-4"></div>
-        <div className="col-4">
+        <div className="col-lg-4 col-md-3 col-sm-3"></div>
+        <div className="col-lg-4 col-md-6 col-sm-6">
           <TextField
             className="fields"
             fullWidth
@@ -42,12 +46,12 @@ function Register() {
             variant="outlined"
           />
         </div>
-        <div className="col-4"></div>
+        <div className="col-lg-4 col-md-3 col-sm-3"></div>
       </div>
 
-      <div className="row" style={{ paddingTop: "30px" }}>
-        <div className="col-4"></div>
-        <div className="col-4">
+      <div className="row" style={{ paddingTop: "10px" }}>
+        <div className="col-lg-4 col-md-3 col-sm-3"></div>
+        <div className="col-lg-4 col-md-6 col-sm-6">
           <TextField
             className="fields"
             type="password"
@@ -58,12 +62,12 @@ function Register() {
             variant="outlined"
           />
         </div>
-        <div className="col-4"></div>
+        <div className="col-lg-4 col-md-3 col-sm-3"></div>
       </div>
 
-      <div className="row" style={{ paddingTop: "30px" }}>
-        <div className="col-4"></div>
-        <div className="col-4">
+      <div className="row" style={{ paddingTop: "10px" }}>
+        <div className="col-lg-4 col-md-3 col-sm-3"></div>
+        <div className="col-lg-4 col-md-6 col-sm-6">
           <TextField
             className="fields"
             type="password"
@@ -74,12 +78,14 @@ function Register() {
             variant="outlined"
           />
         </div>
-        <div className="col-4"></div>
+        <div className="col-lg-4 col-md-3 col-sm-3"></div>
       </div>
 
       <div className="row pt-3 mt-3">
         <div className="d-flex justify-content-center">
-          <Button variant="contained">Register</Button>
+          <Button style={{ fontSize: "18px" }} size="large" variant="contained">
+            Register
+          </Button>
         </div>
       </div>
 

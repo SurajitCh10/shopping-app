@@ -12,6 +12,7 @@ import upload from "../resources/upload.jpeg";
 import electr from "../resources/electr.jpeg";
 import grocery from "../resources/grocery.jpeg";
 import book from "../resources/book.jpeg";
+import "./Menu.css";
 
 function Menus() {
   useEffect(() => {
@@ -31,16 +32,11 @@ function Menus() {
     <>
       <Navbar />
 
-      <div
-        style={{
-          transform: "translate(0%, 60%)",
-        }}
-        className="row pt-4 mt-4 ml-3 pb-3"
-      >
-        <div className="col-3">
+      <div sty className="menu row pt-4 mt-4 ml-3 pb-3">
+        <div className="col-lg-3 col-md-6 col-sm-12">
           <Link to="/upload" style={{ textDecoration: "none" }}>
             <Card
-              sx={{ marginLeft: 10, maxWidth: 345 }}
+              sx={{ margin: 5, maxWidth: 345 }}
               style={{ textAlign: "center" }}
             >
               <CardActionArea>
@@ -72,9 +68,12 @@ function Menus() {
             </Card>
           </Link>
         </div>
-        <div className="col-3">
+        <div className="col-lg-3 col-md-6 col-sm-12">
           <Link to="/submenu/1" style={{ textDecoration: "none" }}>
-            <Card sx={{ maxWidth: 345 }} style={{ textAlign: "center" }}>
+            <Card
+              sx={{ margin: 5, maxWidth: 345 }}
+              style={{ textAlign: "center" }}
+            >
               <CardActionArea>
                 <div className="d-flex justify-content-center">
                   <CardMedia
@@ -100,9 +99,12 @@ function Menus() {
           </Link>
         </div>
 
-        <div className="col-3">
+        <div className="col-lg-3 col-md-6 col-sm-12">
           <Link to="/submenu/2" style={{ textDecoration: "none" }}>
-            <Card sx={{ maxWidth: 345 }} style={{ textAlign: "center" }}>
+            <Card
+              sx={{ margin: 5, maxWidth: 345 }}
+              style={{ textAlign: "center" }}
+            >
               <CardActionArea>
                 <div className="d-flex justify-content-center">
                   <CardMedia
@@ -128,9 +130,12 @@ function Menus() {
           </Link>
         </div>
 
-        <div className="col-3">
+        <div className="col-lg-3 col-md-6 col-sm-12">
           <Link to="/submenu/3" style={{ textDecoration: "none" }}>
-            <Card sx={{ maxWidth: 345 }} style={{ textAlign: "center" }}>
+            <Card
+              sx={{ margin: 5, maxWidth: 345 }}
+              style={{ textAlign: "center" }}
+            >
               <CardActionArea>
                 <div className="d-flex justify-content-center">
                   <CardMedia

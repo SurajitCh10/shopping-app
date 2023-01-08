@@ -12,8 +12,10 @@ function Login() {
   return (
     <>
       <Logo />
-
-      <div className="row mt-3" style={{ paddingTop: "30px" }}>
+      <div className="d-flex justify-content-center pt-2">
+        <h4>Log in to C-Kart</h4>
+      </div>
+      <div className="row mt-2" style={{ paddingTop: "30px" }}>
         <div className="col-4"></div>
         <div className="col-4">
           <TextField
@@ -46,7 +48,9 @@ function Login() {
 
       <div className="row pt-3 mt-3">
         <div className="d-flex justify-content-center">
-          <Button variant="contained">Login</Button>
+          <Button style={{ fontSize: "18px" }} size="large" variant="contained">
+            Login
+          </Button>
         </div>
       </div>
 

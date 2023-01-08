@@ -12,13 +12,19 @@ function Landing() {
     <>
       <Logo />
       <div className="d-flex justify-content-center pt-3 mt-3">
-        <h4>Welcome Admin!</h4>
+        <h2>Welcome Admin to C-Kart!</h2>
       </div>
 
       <div className="row pt-3 mt-3">
         <div className="d-flex justify-content-center">
           <Link to="/menu">
-            <Button variant="contained">Go to Menu</Button>
+            <Button
+              style={{ fontSize: "22px" }}
+              size="large"
+              variant="contained"
+            >
+              Go to Menu
+            </Button>
           </Link>
         </div>
       </div>

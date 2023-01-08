@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Button from "@mui/material/Button";
 import Navbar from "./Navbar";
+import "./Menu.css";
 
 function Upload() {
   useEffect(() => {
@@ -10,13 +11,15 @@ function Upload() {
   return (
     <>
       <Navbar />
-      <div style={{ transform: "translate(0%, 50%)" }}>
+      <div className="menu row pt-4 mt-4 ml-3 pb-3">
         <div className="d-flex justify-content-center pt-3 mt-3">
           <input type="file" />
         </div>
 
         <div className="d-flex justify-content-center pt-3 mt-3">
-          <Button variant="contained">Upload</Button>
+          <Button style={{ fontSize: "18px" }} size="large" variant="contained">
+            Upload
+          </Button>
         </div>
       </div>
     </>
