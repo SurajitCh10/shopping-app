@@ -17,7 +17,7 @@ class App extends Component {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="landing/:id" element={<Landing />} />
-            <Route path="" element={<Menus />} />
+            <Route path="/" element={<Menus />} />
             <Route path="menu" element={<Menus />} />
             <Route path="submenu/:id" element={<Submenu />} />
             <Route path="upload" element={<Upload />} />

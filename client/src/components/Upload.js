@@ -1,9 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Navbar from "./Navbar";
 import "./Menu.css";
+import axios from "axios";
 
 function Upload() {
+  const [file, setFile] = useState();
+
+  const handleChange = (e) => {
+    if (e.target.files) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = () => {
+    getBase64(file).then((base64) => {
+      localStorage["fileBase64"] = base64;
+      console.debug("file stored", base64);
+    });
+
+    window.alert(`${file.name} uploaded to local storage`);
+  };
+
+  const getBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+      reader.readAsDataURL(file);
+    });
+  };
+
   useEffect(() => {
     document.title = "Upload";
   });
@@ -13,11 +40,16 @@ function Upload() {
       <Navbar />
       <div className="menu row pt-4 mt-4 ml-3 pb-3">
         <div className="d-flex justify-content-center pt-3 mt-3">
-          <input type="file" />
+          <input type="file" onChange={handleChange} />
         </div>
 
         <div className="d-flex justify-content-center pt-3 mt-3">
-          <Button style={{ fontSize: "18px" }} size="large" variant="contained">
+          <Button
+            onClick={handleSubmit}
+            style={{ fontSize: "18px" }}
+            size="large"
+            variant="contained"
+          >
             Upload
           </Button>
         </div>
