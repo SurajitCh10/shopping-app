@@ -15,7 +15,15 @@ function Upload() {
 
   const handleSubmit = () => {
     getBase64(file).then((base64) => {
-      localStorage["fileBase64"] = base64;
+      var existing = JSON.parse(localStorage.getItem("files"));
+      if (existing == null) existing = [];
+
+      localStorage.setItem("testObject", JSON.stringify(base64));
+      existing.push(base64);
+      localStorage.setItem("files", JSON.stringify(existing));
+
+      // const arr = [`${base64}`];
+      // localStorage.setItem("files", JSON.stringify(arr));
       console.debug("file stored", base64);
     });
 
