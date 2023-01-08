@@ -1,17 +1,29 @@
 const express = require('express');
-const pool = require('./database');
+const {v4 : uuidv4} = require('uuid');
+
+const {user} = require('../models');
+const checkEmail = require('../middleware/verifySignup');
+const authUser = require('../middleware/authUser')
+
 const router = new express.Router();
 
-const table = process.env.DB_TABLE;
-
-router.post('/register', async (req, res) => {
+router.post('/register', checkEmail, async (req, res) => {
 
     try {
-        const {name, email} = req.body;
-        const sqlQuery = 'INSERT INTO ' + table + ' (name, email) VALUES (?, ?)';
-        const result = await pool.query(sqlQuery, [name, email]);
+        
+        const token = uuidv4();
 
-        res.status(201).send();
+        user.create({
+            name: req.body.name,
+            email: req.body.email,
+            address: req.body.address,
+            password: req.body.password,
+            token
+        }).catch((e) => {
+            if(e) console.log(e);
+        });
+
+        res.status(201).send({ message: "Registered !!", token });
     } catch (e) {
         res.status(400).send(e.message);
     }
@@ -21,19 +33,55 @@ router.post('/register', async (req, res) => {
 router.post('/login', async(req, res) => {
 
     try {
-        res.status(200).json({status: 'Logged In'});
+        
+        const User = await user.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
+
+        if(User) {
+            
+            if(req.body.password === User.password) {
+                const token = uuidv4();
+
+                user.update({
+                    token
+                }, {
+                    where: {
+                        email: req.body.email
+                    }
+                })
+
+                const check_admin = 1 ? User.admin : 0;
+
+                res.status(200).send({ message: "Logged In !!", token, admin: check_admin});
+            } else {
+                res.status(400).send({ message: "Password Incorrect !!" });
+            }
+        } else {
+            res.status(404).send({ message: "User does not exist !!" })
+        }
+
     } catch (e) {
-        res.status(400).json({status: 'Failed'});
+        res.status(400).send(e.message);
     }
 
 });
 
-router.post('/logout', async(req, res) => {
+router.post('/logout', authUser, async(req, res) => {
 
     try {
-        res.status(200).json({status: 'Logged Out'});
+        user.update({
+            token: null
+        }, {
+            where: {
+                token: req.header('Authorization').replace('Bearer ', '')
+            }
+        })
+        res.status(200).send({ message: "Logged Out !!" });
     } catch (e) {
-        res.status(400).json({status: 'Failed'});
+        res.status(400).send(e.message);
     }
 
 });
