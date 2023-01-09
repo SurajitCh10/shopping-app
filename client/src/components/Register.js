@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Axios from "axios";
-import { message, Spin } from "antd";
+import { message } from "antd";
+import Cookies from 'universal-cookie';
 
 function Register() {
   useEffect(() => {
     document.title = "Register";
   });
+
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState(false);
@@ -45,28 +48,26 @@ function Register() {
       setPasswordError(true);
       return;
     }
-    if (cpassword === "") {
-      setCpasswordError(true);
-      return;
-    }
 
     const config = { headers: { "Content-Type": "application/json" } };
+    const cookies = new Cookies();
 
     Axios.post(
-      "url",
+      "http://localhost:4000/register",
       {
         name: name,
         email: email,
         address: address,
         password: password,
-        cpassword: cpassword,
       },
       config
     )
       .then(function (response) {
-        message.success("Logged in successfully");
+        message.success("Registered successfully");
+        cookies.set('token', response.data.token, {path: '/'});
+
         setTimeout(function () {
-          history.push("/");
+          navigate('/')
         }, 1000);
       })
       .catch(function (error) {

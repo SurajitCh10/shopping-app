@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Axios from "axios";
+import Cookies from "universal-cookie";
+import { message } from "antd";
 
 function Login() {
   useEffect(() => {
     document.title = "Login";
   });
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -28,9 +33,10 @@ function Login() {
     }
 
     const config = { headers: { "Content-Type": "application/json" } };
+    const cookies = new Cookies();
 
     Axios.post(
-      "url",
+      "http://localhost:4000/login",
       {
         email: email,
         password: password,
@@ -39,9 +45,18 @@ function Login() {
     )
       .then(function (response) {
         message.success("Logged in successfully");
-        setTimeout(function () {
-          history.push("/");
-        }, 1000);
+
+        cookies.set("token", response.data.token, { path: "/" });
+
+        if (response.data.admin) {
+          setTimeout(function () {
+            navigate(`/landing/${response.data.name}`);
+          }, 1000);
+        } else {
+          setTimeout(function () {
+            navigate("/");
+          }, 1000);
+        }
       })
       .catch(function (error) {
         message.error(`${error.response.data.message}`);
