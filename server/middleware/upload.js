@@ -2,8 +2,9 @@ const util = require('util');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
+
     destination: (req, file, cb) => {
-        cb(null, __basedir + '/server/uploads');
+        cb(null, 'Desktop');
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname);
@@ -12,7 +13,7 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({
     storage
-}).single('file');
+}).single('req.body.file');
 
 const uploadFileMiddleware = util.promisify(uploadFile);
 

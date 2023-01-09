@@ -1,6 +1,10 @@
 const express = require('express');
 const {v4 : uuidv4} = require('uuid');
 
+const path = require('path');
+const fs = require('fs');
+const formidable = require('formidable');
+
 const {user} = require('../models');
 const checkEmail = require('../middleware/verifySignup');
 const authUser = require('../middleware/authUser');
@@ -88,23 +92,30 @@ router.post('/logout', authUser, async(req, res) => {
 
 });
 
-// router.post('/upload', authUser, async(req, res) => {
+router.post('/upload', async(req, res) => {
 
-//     try {
-//         await uploadFile(req, res);
+    try {
+        const form = new formidable.IncomingForm();
 
-//         if(req.file == undefined)
-//             return res.status(400).send({ message: 'Please upload a file !' });
+        form.parse(req, (err, fields, files) => {
+
+            var oldPath = files.file.filepath;
+            var newPath = path.join(__dirname, 'assets') + '/' + files.file.originalFilename;
+            var rawData = fs.readFileSync(oldPath);
+    
+            fs.writeFile(newPath, rawData, (err) => {
         
-//         res.status(200).send({
-//             message: 'File uploaded: ' + req.file.originalname
-//         });
-//     } catch (err) {
-//         res.status(200).send({
-//             message: `Could not upload the file: ${req.file.originalname}. ${err}`
-//         });
-//     }
-
-// });
+                if (err) console.log(err);
+                    return res.send("Successfully uploaded");
+            }); 
+        });
+    } catch (e) {
+        res.status(400).send(e);
+    }
+    
+    });
 
 module.exports = router;
+
+
+    
