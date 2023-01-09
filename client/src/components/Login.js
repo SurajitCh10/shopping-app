@@ -3,10 +3,9 @@ import Logo from "./Logo";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
-import Axios  from "axios";
-import Cookies from 'universal-cookie';
+import Axios from "axios";
+import Cookies from "universal-cookie";
 import { message } from "antd";
-
 
 function Login() {
   useEffect(() => {
@@ -14,7 +13,6 @@ function Login() {
   });
 
   const navigate = useNavigate();
-  
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -48,16 +46,17 @@ function Login() {
       .then(function (response) {
         message.success("Logged in successfully");
 
-        cookies.set('token', response.data.token, {path: '/'});
+        cookies.set("token", response.data.token, { path: "/" });
 
-        if(response.data.admin){setTimeout(function () {
-          navigate(`/landing/${response.data.name}`)
-        }, 1000) }else { setTimeout(function () {
-          navigate('/')
-        }, 1000);}
-
-
-        
+        if (response.data.admin) {
+          setTimeout(function () {
+            navigate(`/landing/${response.data.name}`);
+          }, 1000);
+        } else {
+          setTimeout(function () {
+            navigate("/");
+          }, 1000);
+        }
       })
       .catch(function (error) {
         message.error(`${error.response.data.message}`);

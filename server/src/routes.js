@@ -3,7 +3,8 @@ const {v4 : uuidv4} = require('uuid');
 
 const {user} = require('../models');
 const checkEmail = require('../middleware/verifySignup');
-const authUser = require('../middleware/authUser')
+const authUser = require('../middleware/authUser');
+const uploadFile = require('../middleware/upload');
 
 const router = new express.Router();
 
@@ -86,5 +87,24 @@ router.post('/logout', authUser, async(req, res) => {
     }
 
 });
+
+// router.post('/upload', authUser, async(req, res) => {
+
+//     try {
+//         await uploadFile(req, res);
+
+//         if(req.file == undefined)
+//             return res.status(400).send({ message: 'Please upload a file !' });
+        
+//         res.status(200).send({
+//             message: 'File uploaded: ' + req.file.originalname
+//         });
+//     } catch (err) {
+//         res.status(200).send({
+//             message: `Could not upload the file: ${req.file.originalname}. ${err}`
+//         });
+//     }
+
+// });
 
 module.exports = router;
