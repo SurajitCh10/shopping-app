@@ -4,7 +4,8 @@ const authUser = async (req, res, next) => {
     
 
     try {
-        const token = req.header('Authorization').replace('Bearer ', '');
+        // const token = req.header('Authorization').replace('Bearer ', '');
+        const token = req.body.token;
         
         user.findOne({
             where: {
