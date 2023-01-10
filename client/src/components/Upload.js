@@ -54,16 +54,10 @@ function Upload() {
     )
       .then(function (response) {
         message.success(`${response.data}`);
-        useEffect(() => {
-          Axios.get("http://localhost:4000/view")
-            .then((res) => {
-              for (let i = 0; i < res.data.length; i++)
-                setData((data) => [...data, res.data[i]]);
-            })
-            .catch(function (error) {
-              message.error(`${error.response.data.message}`);
-            });
-        }, []);
+
+        Axios.get("http://localhost:4000/view").then((res) => {
+          setData(res.data);
+        });
       })
       .catch(function (error) {
         message.error(`${error.response.data.message}`);
@@ -112,7 +106,8 @@ function Upload() {
   return (
     <>
       <Navbar />
-      <div className="menu row pt-4 mt-4 ml-3 pb-3">
+      <div style={{ padding: "20px" }}></div>
+      <div className="row pt-4 mt-4 ml-3 pb-3">
         <form onSubmit={addToList}>
           <input type="file" onChange={handleChange} />
           <input type="submit" value="Upload File" />
