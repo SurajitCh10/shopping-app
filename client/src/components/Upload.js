@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Navbar from "./Navbar";
 import "./Menu.css";
+import Axios from "axios";
+import { message } from "antd";
+import Cookies from "universal-cookie";
 
 function Upload() {
   const [file, setFile] = useState();
@@ -12,22 +15,49 @@ function Upload() {
     }
   };
 
-  const handleSubmit = () => {
-    getBase64(file).then((base64) => {
-      var existing = JSON.parse(localStorage.getItem("files"));
-      if (existing == null) existing = [];
+  const formData = new FormData();
+  formData.append("file", file);
 
-      localStorage.setItem("testObject", JSON.stringify(base64));
-      existing.push(base64);
-      localStorage.setItem("files", JSON.stringify(existing));
+  console.log(formData);
 
-      // const arr = [`${base64}`];
-      // localStorage.setItem("files", JSON.stringify(arr));
-      console.debug("file stored", base64);
-    });
+  const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-    window.alert(`${file.name} uploaded to local storage`);
+  const cookies = new Cookies();
+  const addToList = (e) => {
+    e.preventDefault();
+
+    Axios.post(
+      "http://localhost:4000/upload",
+      {
+        // token: cookies.get('token'),
+        file,
+      },
+      config
+    )
+      .then(function (response) {
+        message.success(`${response.data}`);
+      })
+      .catch(function (error) {
+        message.error(`${error.response.data.message}`);
+      });
   };
+
+  // const handleSubmit = () => {
+  //   getBase64(file).then((base64) => {
+  //     var existing = JSON.parse(localStorage.getItem("files"));
+  //     if (existing == null) existing = [];
+
+  //     localStorage.setItem("testObject", JSON.stringify(base64));
+  //     existing.push(base64);
+  //     localStorage.setItem("files", JSON.stringify(existing));
+
+  //     // const arr = [`${base64}`];
+  //     // localStorage.setItem("files", JSON.stringify(arr));
+  //     console.debug("file stored", base64);
+  //   });
+
+  //   window.alert(`${file.name} uploaded to local storage`);
+  // };
 
   const getBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -47,18 +77,10 @@ function Upload() {
       <Navbar />
       <div className="menu row pt-4 mt-4 ml-3 pb-3">
         <div className="d-flex justify-content-center pt-3 mt-3">
-          <input type="file" onChange={handleChange} />
-        </div>
-
-        <div className="d-flex justify-content-center pt-3 mt-3">
-          <Button
-            onClick={handleSubmit}
-            style={{ fontSize: "22px" }}
-            size="large"
-            variant="contained"
-          >
-            Upload
-          </Button>
+          <form onSubmit={addToList}>
+            <input type="file" onChange={handleChange} />
+            <input type="submit" value="Upload File" />
+          </form>
         </div>
       </div>
     </>

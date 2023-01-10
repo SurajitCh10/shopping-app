@@ -7,12 +7,14 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
-import { BsChevronDown } from "react-icons/bs";
+import Button from "@mui/material/Button";
 import upload from "../resources/upload.jpeg";
 import electr from "../resources/electr.jpeg";
 import grocery from "../resources/grocery.jpeg";
 import book from "../resources/book.jpeg";
 import "./Menu.css";
+import Axios from "axios";
+import Moment from "moment";
 
 function Menus() {
   useEffect(() => {
@@ -28,11 +30,41 @@ function Menus() {
     setAnchorEl(null);
   };
 
+  const [click, setClick] = useState(false);
+  useEffect(() => {
+    console.log(`Current time is ${curr_time()}`);
+  }, [click]);
+
   return (
     <>
       <Navbar />
 
       <div sty className="menu row pt-4 mt-4 ml-3 pb-3">
+        <div className="d-flex justify-content-center">
+          <Button
+            onClick={() => {
+              setClick(click === true ? false : true);
+            }}
+            style={{
+              borderRadius: 5,
+              backgroundColor: "Blue",
+              padding: "5px",
+              fontSize: "16px",
+            }}
+            variant="contained"
+          >
+            {click ? <>Close Time</> : <>Show Time</>}
+          </Button>
+
+          {click ? (
+            <>
+              <h5 style={{ paddingLeft: "5px" }}>{`${curr_time()}`}</h5>
+            </>
+          ) : (
+            <></>
+          )}
+          {/* <h5 style={{ paddingLeft: "5px" }}>{`${curr_time()}`}</h5> */}
+        </div>
         <div className="col-lg-3 col-md-6 col-sm-12">
           <Link to="/upload" style={{ textDecoration: "none" }}>
             <Card
@@ -153,7 +185,7 @@ function Menus() {
                     Books
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Click to see the Books
+                    Click to see the Books time
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -161,8 +193,6 @@ function Menus() {
           </Link>
         </div>
       </div>
-
-      <div className="d-flex justify-content-center pt-4 mt-4"></div>
     </>
   );
 }

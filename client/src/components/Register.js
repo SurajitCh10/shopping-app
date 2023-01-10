@@ -152,24 +152,6 @@ function Register() {
         <div className="col-lg-4 col-md-3 col-sm-3"></div>
       </div>
 
-      <div className="row" style={{ paddingTop: "10px" }}>
-        <div className="col-lg-4 col-md-3 col-sm-3"></div>
-        <div className="col-lg-4 col-md-6 col-sm-6">
-          <TextField
-            className="fields"
-            type="password"
-            fullWidth
-            required
-            id="outlined-basic"
-            label="Confirm Password"
-            variant="outlined"
-            onChange={(e) => setCpassword(e.target.value)}
-            error={cpasswordError}
-          />
-        </div>
-        <div className="col-lg-4 col-md-3 col-sm-3"></div>
-      </div>
-
       <div className="row pt-3 mt-3">
         <div className="d-flex justify-content-center">
           <Button
