@@ -3,11 +3,31 @@ import Button from "@mui/material/Button";
 import Navbar from "./Navbar";
 import "./Menu.css";
 import Axios from "axios";
-import { message } from "antd";
+import { message, Table } from "antd";
 import Cookies from 'universal-cookie';
+
+const columns = [
+  {
+      title: 'Sl No.',
+      dataIndex: 'id',
+      key: 'id'
+  },  
+  {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name'
+  },
+  {
+      title: 'Path',
+      dataIndex: 'path',
+      key: 'path',
+      render: (text, record) => <a href={'file://' + record.path}>{text}</a>
+  }
+];
 
 function Upload() {
   const [file, setFile] = useState();
+  const [data, setData] = useState([]);
 
   const handleChange = (e) => {
     if (e.target.files) {
@@ -17,8 +37,6 @@ function Upload() {
 
   const formData = new FormData();
   formData.append('file', file);
-  
-  console.log(formData)
 
   const config = { headers: { "Content-Type": "multipart/form-data" } };
 
@@ -60,18 +78,28 @@ function Upload() {
   //   window.alert(`${file.name} uploaded to local storage`);
   // };
 
-  const getBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-      reader.readAsDataURL(file);
-    });
-  };
+  // const getBase64 = (file) => {
+  //   return new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.onload = () => resolve(reader.result);
+  //     reader.onerror = (error) => reject(error);
+  //     reader.readAsDataURL(file);
+  //   });
+  // };
 
   useEffect(() => {
     document.title = "Upload";
-  });
+
+    Axios.get("http://localhost:4000/view").then((res) => {
+
+      for(let i = 0; i < res.data.length; i++)
+        setData(data => [...data, res.data[i]]);
+
+    }).catch(function (error) {
+      message.error(`${error.response.data.message}`);
+    });
+
+  }, []);
 
   return (
     <>
@@ -81,6 +109,9 @@ function Upload() {
           <input type='file' onChange={handleChange} />
           <input type='submit' value='Upload File'/>
         </form>
+
+        <Table columns={columns} dataSource={data} />
+
       </div>
     </>
   );

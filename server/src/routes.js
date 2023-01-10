@@ -10,6 +10,8 @@ const checkEmail = require('../middleware/verifySignup');
 const authUser = require('../middleware/authUser');
 const uploadFile = require('../middleware/upload');
 
+const pool = require('./database');
+
 const router = new express.Router();
 
 router.post('/register', checkEmail, async (req, res) => {
@@ -39,15 +41,18 @@ router.post('/login', async(req, res) => {
 
     try {
         
-        const User = await user.findOne({
-            where: {
-                email: req.body.email
-            }
-        });
+        // const User = await user.findOne({
+        //     where: {
+        //         email: req.body.email
+        //     }
+        // });
+
+        const sqlQuery = 'SELECT * FROM users WHERE email=?';
+        const User = await pool.query(sqlQuery, req.body.email);
 
         if(User) {
             
-            if(req.body.password === User.password) {
+            if(req.body.password === User[0].password) {
                 const token = uuidv4();
 
                 user.update({
@@ -106,14 +111,35 @@ router.post('/upload', async(req, res) => {
             fs.writeFile(newPath, rawData, (err) => {
         
                 if (err) console.log(err);
-                    return res.send("Successfully uploaded");
-            }); 
+                
+                const sqlQuery = 'INSERT INTO assets (name, path) VALUES (?, ?)';
+                pool.query(sqlQuery, [files.file.originalFilename, newPath]);
+
+                return res.send("Successfully uploaded");
+            });
+            
+            
         });
     } catch (e) {
         res.status(400).send(e);
     }
     
-    });
+});
+
+router.get('/view', async (req, res) => {
+
+    try {
+
+        const sqlQuery = 'SELECT * FROM assets';
+        const result = await pool.query(sqlQuery);
+
+        res.status(200).send(result);
+
+    } catch (e) {
+        res.status(400).send(e);
+    }
+ 
+});
 
 module.exports = router;
 
