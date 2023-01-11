@@ -63,9 +63,9 @@ router.post('/login', async(req, res) => {
                     }
                 })
 
-                const check_admin = 1 ? User.admin : 0;
+                const check_admin = 1 ? User[0].admin : 0;
 
-                res.status(200).send({ message: "Logged In !!", token, name: User.name, admin: check_admin});
+                res.status(200).send({ message: "Logged In !!", token, name: User[0].name, admin: check_admin});
             } else {
                 res.status(400).send({ message: "Password Incorrect !!" });
             }
