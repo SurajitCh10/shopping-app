@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import upload from "../resources/upload.jpeg";
 import electr from "../resources/electr.jpeg";
@@ -14,11 +14,33 @@ import grocery from "../resources/grocery.jpeg";
 import book from "../resources/book.jpeg";
 import "./Menu.css";
 import Axios from "axios";
+import Cookies from "universal-cookie";
+
 
 function Menus() {
-  useEffect(() => {
-    document.title = "Menu";
-  });
+
+  const cookies = new Cookies();
+  const navigate = useNavigate();
+
+  const token = cookies.get('token');
+
+    useEffect(() => {
+
+      setInterval(() => {
+        
+        if(!cookies.get('token')) {
+          
+          Axios.post('http://localhost:4000/logout', {
+            token
+          }).then(() => {
+            cookies.remove('token');
+            navigate("/login");
+            window.location.reload();
+          });
+
+        }
+    }, 1000);
+  }, []);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -31,8 +53,8 @@ function Menus() {
 
   const [click, setClick] = useState(false);
   useEffect(() => {
-    console.log(`Current time is ${curr_time()}`);
-  }, [click]);
+    document.title = "Menu";
+  }, []);
 
   return (
     <>

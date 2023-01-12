@@ -46,9 +46,13 @@ function Login() {
       .then(function (response) {
         message.success("Logged in successfully");
 
-        cookies.set("token", response.data.token, { path: "/" });
+        cookies.set("token", response.data.token, { path: "/", maxAge: 10 });
+        
+        const len = response.data.name.length * -1;
 
-        if (response.data.admin) {
+        console.log(len);
+
+        if (response.data.token.slice(len) === response.data.name) {
           setTimeout(function () {
             navigate(`/landing/${response.data.name}`);
           }, 1000);

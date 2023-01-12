@@ -8,7 +8,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Navbar from "./Navbar";
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate} from "react-router-dom";
+import Axios from "axios";
+import Cookies from "universal-cookie";
 
 const values = [
   {
@@ -38,6 +40,29 @@ function Submenu() {
   useEffect(() => {
     document.title = "Submenu";
   });
+
+  const cookies = new Cookies();
+  const navigate = useNavigate();
+
+  const token = cookies.get('token');
+
+    useEffect(() => {
+
+      setInterval(() => {
+        
+        if(!cookies.get('token')) {
+          
+          Axios.post('http://localhost:4000/logout', {
+            token
+          }).then(() => {
+            cookies.remove('token');
+            navigate("/login");
+            window.location.reload();
+          });
+
+        }
+    }, 1000);
+  }, []);
 
   return (
     <>

@@ -27,7 +27,9 @@ class App extends Component {
             <Route
               path="landing/:id"
               element={
+                <ProtectedRoute>
                   <Landing />
+                </ProtectedRoute>
               }
             />
             <Route

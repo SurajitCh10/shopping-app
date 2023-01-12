@@ -1,10 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 
 const router = require('./routes');
 const db = require('../models')
 
 const app = express();
+app.use(helmet.frameguard({ action: 'DENY' }));
 
 const client = process.env.CLIENT_PORT;
 

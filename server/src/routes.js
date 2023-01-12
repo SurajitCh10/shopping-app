@@ -20,12 +20,14 @@ router.post('/register', checkEmail, async (req, res) => {
         
         const token = uuidv4();
 
-        user.create({
+        const User = await user.create({
             name: req.body.name,
             email: req.body.email,
             address: req.body.address,
             password: req.body.password,
             token
+            
+            // session_Active: true
         }).catch((e) => {
             if(e) console.log(e);
         });
@@ -53,19 +55,22 @@ router.post('/login', async(req, res) => {
         if(User) {
             
             if(req.body.password === User[0].password) {
-                const token = uuidv4();
+
+                var token = uuidv4().toString();
+
+                if(User[0].admin)
+                    token += User[0].name;
 
                 user.update({
-                    token
+                    token,
+                    // session_Active: true
                 }, {
                     where: {
                         email: req.body.email
                     }
                 })
 
-                const check_admin = 1 ? User[0].admin : 0;
-
-                res.status(200).send({ message: "Logged In !!", token, name: User[0].name, admin: check_admin});
+                res.status(200).send({ message: "Logged In !!", token, name: User[0].name });
             } else {
                 res.status(400).send({ message: "Password Incorrect !!" });
             }
@@ -83,7 +88,8 @@ router.post('/logout', authUser, async(req, res) => {
 
     try {
         user.update({
-            token: null
+            token: null,
+            // session_Active: false
         }, {
             where: {
                 // token: req.header('Authorization').replace('Bearer ', '')
@@ -139,6 +145,27 @@ router.get('/view', async (req, res) => {
         res.status(400).send(e);
     }
  
+});
+
+router.get('/check', async (req, res) => {
+
+    try {
+
+        const User = await user.findOne({
+            where: {
+                token: req.body.token
+            }
+        });
+
+        if(!User) {
+
+        }
+            
+ 
+    } catch (e) {
+        res.status(400).send({access: 0})
+    }
+
 });
 
 module.exports = router;

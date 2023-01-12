@@ -1,12 +1,37 @@
 import React, { useEffect } from "react";
 import Logo from "./Logo";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Axios from "axios";
+import Cookies from "universal-cookie";
 
 function Landing() {
   useEffect(() => {
     document.title = "Landing";
   });
+
+  const cookies = new Cookies();
+  const navigate = useNavigate();
+
+  const token = cookies.get('token');
+
+    useEffect(() => {
+
+      setInterval(() => {
+        
+        if(!cookies.get('token')) {
+          
+          Axios.post('http://localhost:4000/logout', {
+            token
+          }).then(() => {
+            cookies.remove('token');
+            navigate("/login");
+            window.location.reload();
+          });
+
+        }
+    }, 1000);
+  }, []);
 
   return (
     <>

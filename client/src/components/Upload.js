@@ -5,6 +5,7 @@ import "./Menu.css";
 import Axios from "axios";
 import { message, Table } from "antd";
 import Cookies from 'universal-cookie';
+import { useNavigate } from "react-router-dom";
 
 const columns = [
   {
@@ -99,6 +100,28 @@ function Upload() {
       message.error(`${error.response.data.message}`);
     });
 
+  }, []);
+
+  const navigate = useNavigate();
+
+  const token = cookies.get('token');
+
+    useEffect(() => {
+
+      setInterval(() => {
+        
+        if(!cookies.get('token')) {
+          
+          Axios.post('http://localhost:4000/logout', {
+            token
+          }).then(() => {
+            cookies.remove('token');
+            navigate("/login");
+            window.location.reload();
+          });
+
+        }
+    }, 1000);
   }, []);
 
   return (
