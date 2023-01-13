@@ -6,11 +6,22 @@ import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 import { message } from "antd";
+const {v4 : uuidv4} = require('uuid');
 
 function Login() {
+  const cookies = new Cookies();
+  const [csrf, setCsrf] = useState();
+
   useEffect(() => {
     document.title = "Login";
-  });
+    cookies.set("token", uuidv4(), { path: "/" });
+
+    Axios.get('http://localhost:4000/csrf').then((res) => {
+      setCsrf(res.data.csrf);
+    }).catch((error) => {
+      message.error(`${error.response.data.message}`);
+    });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -32,27 +43,24 @@ function Login() {
       return;
     }
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + csrf} };
     const cookies = new Cookies();
 
+    console.log(csrf)
+
     Axios.post(
-      "http://localhost:4000/login",
-      {
+      "http://localhost:4000/login", {
         email: email,
-        password: password,
+        password: password
       },
       config
     )
       .then(function (response) {
         message.success("Logged in successfully");
 
-        cookies.set("token", response.data.token, { path: "/", maxAge: 10 });
+        cookies.set("token", response.data.token, { path: "/", maxAge: 900 });
         
-        const len = response.data.name.length * -1;
-
-        console.log(len);
-
-        if (response.data.token.slice(len) === response.data.name) {
+        if (response.data.token[3] === 'q' && response.data.token[4] === 'e' && response.data.token[5] === 'O') {
           setTimeout(function () {
             navigate(`/landing/${response.data.name}`);
           }, 1000);

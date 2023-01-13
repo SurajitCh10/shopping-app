@@ -8,9 +8,20 @@ import { message } from "antd";
 import Cookies from 'universal-cookie';
 
 function Register() {
+
+  const [csrf, setCsrf] = useState();
+
   useEffect(() => {
     document.title = "Register";
-  });
+    
+    Axios.get('http://localhost:4000/csrf').then((res) => {
+      setCsrf(res.data.csrf);
+      console.log(res.data.csrf)
+    }).catch((error) => {
+      message.error(`${error.response.data.message}`);
+    });
+
+  }, []);
 
   const navigate = useNavigate();
 
@@ -49,7 +60,7 @@ function Register() {
       return;
     }
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + csrf} };
     const cookies = new Cookies();
 
     Axios.post(

@@ -22,13 +22,28 @@ function Menus() {
   const cookies = new Cookies();
   const navigate = useNavigate();
 
+  var v = 1;
   const token = cookies.get('token');
 
     useEffect(() => {
 
+      if(v === '1') {
+        Axios.get('http://localhost:4000/check', {
+          token: cookies.get('token')
+        }).then((res) => {
+          if(res.data.y8a3 === 'LMOFNINCNOI') {
+            cookies.remove('token');
+            navigate("/login");
+            window.location.reload();
+          }
+        });
+
+        v = 2;
+      }
+
       setInterval(() => {
         
-        if(!cookies.get('token')) {
+        if(!cookies.get('token') || cookies.get('token') != token) {
           
           Axios.post('http://localhost:4000/logout', {
             token
@@ -39,7 +54,9 @@ function Menus() {
           });
 
         }
+
     }, 1000);
+
   }, []);
 
   const [anchorEl, setAnchorEl] = useState(null);

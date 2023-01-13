@@ -1,5 +1,6 @@
 const express = require('express');
 const {v4 : uuidv4} = require('uuid');
+const Axios = require('axios');
 
 const path = require('path');
 const fs = require('fs');
@@ -14,10 +15,15 @@ const pool = require('./database');
 
 const router = new express.Router();
 
+let csrf;
+
 router.post('/register', checkEmail, async (req, res) => {
 
     try {
         
+        if(req.header('Authorization').replace('Bearer ', '') != csrf)
+            throw new Error('Access Denied');
+
         const token = uuidv4();
 
         const User = await user.create({
@@ -42,7 +48,9 @@ router.post('/register', checkEmail, async (req, res) => {
 router.post('/login', async(req, res) => {
 
     try {
-        
+        if(req.header('Authorization').replace('Bearer ', '') != csrf)
+            throw new Error('Access Denied');
+
         // const User = await user.findOne({
         //     where: {
         //         email: req.body.email
@@ -59,7 +67,10 @@ router.post('/login', async(req, res) => {
                 var token = uuidv4().toString();
 
                 if(User[0].admin)
-                    token += User[0].name;
+                    token = token.slice(0,3) + 'qeO' + token.slice(3);
+                else
+                    token = token.slice(0,3) + 'r0z' + token.slice(3);
+                
 
                 user.update({
                     token,
@@ -158,14 +169,21 @@ router.get('/check', async (req, res) => {
         });
 
         if(!User) {
-
-        }
-            
+            console.log('yes');
+            res.send({ y8a3: 'LMOFNINCNOI' });
+        } else
+            res.send({ y8a3: 'LM0FNINCNOI' });   
  
     } catch (e) {
-        res.status(400).send({access: 0})
+        console.log('error');
+        res.send({ y8a3: 'LMOFNINCNOI' });
     }
 
+});
+
+router.get('/csrf', async (req, res) => {
+    csrf = uuidv4();
+    res.send({ 'csrf': csrf });
 });
 
 module.exports = router;

@@ -24,8 +24,10 @@ function Navbar() {
         cookies.remove("token");
 
         setTimeout(function () {
-          navigate("/login");
+          window.location.reload();
         }, 1000);
+
+
       })
       .catch(function (error) {
         message.error(`${error.response.data.message}`);
