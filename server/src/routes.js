@@ -1,6 +1,6 @@
 const express = require('express');
 const {v4 : uuidv4} = require('uuid');
-const Axios = require('axios');
+const app = express();
 
 const path = require('path');
 const fs = require('fs');
@@ -10,10 +10,20 @@ const {user} = require('../models');
 const checkEmail = require('../middleware/verifySignup');
 const authUser = require('../middleware/authUser');
 const uploadFile = require('../middleware/upload');
+const expressWinston = require("express-winston");
+const { transports, format } = require("winston");
 
 const pool = require('./database');
 
 const router = new express.Router();
+const logger = require("./logger");
+
+app.use(
+    expressWinston.logger({
+      winstonInstance: logger,
+      statusLevels: true,
+    })
+  );
 
 let csrf;
 
@@ -37,9 +47,10 @@ router.post('/register', checkEmail, async (req, res) => {
         }).catch((e) => {
             if(e) console.log(e);
         });
-
+        logger.info("New User Registered");
         res.status(201).send({ message: "Registered !!", token });
     } catch (e) {
+        logger.error(`${e.message} in register`);
         res.status(400).send(e.message);
     }
 
@@ -81,15 +92,19 @@ router.post('/login', async(req, res) => {
                     }
                 })
 
+                logger.info("Logged in");
                 res.status(200).send({ message: "Logged In !!", token, name: User[0].name });
             } else {
+                logger.error("Incorrect Password");
                 res.status(400).send({ message: "Password Incorrect !!" });
             }
         } else {
+            logger.error("User does not exist");
             res.status(404).send({ message: "User does not exist !!" })
         }
 
     } catch (e) {
+        logger.error(`${e.message} in login`);
         res.status(400).send(e.message);
     }
 
@@ -107,6 +122,7 @@ router.post('/logout', authUser, async(req, res) => {
                 token: req.body.token
             }
         })
+        logger.info("User Logged out");
         res.status(200).send({ message: "Logged Out !!" });
     } catch (e) {
         res.status(400).send(e.message);
@@ -132,12 +148,14 @@ router.post('/upload', async(req, res) => {
                 const sqlQuery = 'INSERT INTO assets (name, path) VALUES (?, ?)';
                 pool.query(sqlQuery, [files.file.originalFilename, newPath]);
 
+                logger.info("File uploaded");
                 return res.send("Successfully uploaded");
             });
             
             
         });
     } catch (e) {
+        logger.error(`${e.message} in file upload`);
         res.status(400).send(e);
     }
     
@@ -169,13 +187,14 @@ router.get('/check', async (req, res) => {
         });
 
         if(!User) {
-            console.log('yes');
+            logger.error("Access attempt with invalid token");
             res.send({ y8a3: 'LMOFNINCNOI' });
-        } else
+        } else {
+            // logger.info("Valid access");
             res.send({ y8a3: 'LM0FNINCNOI' });   
- 
+        }
     } catch (e) {
-        console.log('error');
+        logger.error("Access attempt with invalid token");
         res.send({ y8a3: 'LMOFNINCNOI' });
     }
 

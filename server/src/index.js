@@ -6,14 +6,19 @@ const router = require('./routes');
 const db = require('../models')
 
 const app = express();
-app.use(helmet.frameguard({ action: 'DENY' }));
 
 const client = process.env.CLIENT_PORT;
 
+app.use(helmet.frameguard({ action: 'DENY' }));
 app.use(cors({ credentials: true, origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(router);
+
+// app.use(function (req, res, next) {
+//     res.setHeader("Content-Security-Policy", "frame-ancestors 'none'");
+//     next();
+// });
 
 const port = process.env.PORT;
 

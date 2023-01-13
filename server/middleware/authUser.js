@@ -1,4 +1,16 @@
 const {user} = require('../models');
+const express = require("express");
+const app = express();
+const expressWinston = require("express-winston");
+
+const logger = require("../src/logger");
+
+app.use(
+  expressWinston.logger({
+    winstonInstance: logger,
+    statusLevels: true,
+  })
+);
 
 const authUser = async (req, res, next) => {
     
@@ -20,10 +32,12 @@ const authUser = async (req, res, next) => {
             res.status(401).send({
                 message: "Please authenticate !!"
             });
+            logger.error("Please Authenticate");
         });
 
 
     } catch (e) {
+        logger.error("Logout failed");
         res.status(400).send({ message: 'Logout failed !!' });
     }
  

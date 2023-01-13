@@ -1,0 +1,612 @@
+{
+  message: 'New User Registered',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:52:22'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:56:45'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:56:46'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:56:46'
+}
+{
+  message: 'Failed! Email is already in use!!',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:57:03'
+}
+{
+  message: 'Incorrect Password',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:58:08'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:58:12'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:58:22'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:58:42'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:58:45'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:58:45'
+}
+{
+  message: 'New User Registered',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:59:46'
+}
+{
+  message: 'Failed! Email is already in use!!',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:59:47'
+}
+{
+  message: 'Failed! Email is already in use!!',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 15:59:47'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:00:22'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:00:22'
+}
+{
+  message: 'Incorrect Password',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:00:34'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:00:46'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:32'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:33'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:35'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:36'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:37'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:38'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:39'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:41'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:01:59'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:00'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:02'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:02'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:03'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:04'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:05'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:06'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:06'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:07'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:08'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:09'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:10'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:11'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:12'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:22'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:02:48'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:32'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:32'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:32'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:33'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:33'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:33'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:35'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:35'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:35'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:36'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:36'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:36'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:37'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:37'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:37'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:38'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:38'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:38'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:39'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:39'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:39'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:41'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:41'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:41'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:03:42'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:13:03'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:14:27'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:14:28'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:15:00'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:15:13'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:15:52'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:15:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:15:54'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:15:54'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:15:55'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:16:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:17:44'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:23'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:24'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:25'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:26'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:27'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:28'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:29'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:30'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:31'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:18:43'
+}
