@@ -6,6 +6,8 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { message } from "antd";
 import Cookies from 'universal-cookie';
+import { inputValidator } from "./Validator";
+import { emailValidator } from "./Validator";
 
 function Register() {
 
@@ -43,19 +45,19 @@ function Register() {
     setPasswordError(false);
     setCpasswordError(false);
 
-    if (name === "") {
+    if (!name.match(inputValidator)) {
       setNameError(true);
       return;
     }
-    if (email === "") {
+    if (!email.match(emailValidator)) {
       setEmailError(true);
       return;
     }
-    if (address === "") {
+    if (!address.match(inputValidator)) {
       setAddressError(true);
       return;
     }
-    if (password === "") {
+    if (!password.match(inputValidator)) {
       setPasswordError(true);
       return;
     }

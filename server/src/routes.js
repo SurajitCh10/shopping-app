@@ -179,10 +179,12 @@ router.get('/view', async (req, res) => {
 router.get('/check', async (req, res) => {
 
     try {
+        
+        console.log(req.body.token)
 
         const User = await user.findOne({
             where: {
-                token: req.body.token
+                token
             }
         });
 
@@ -194,8 +196,10 @@ router.get('/check', async (req, res) => {
             res.send({ y8a3: 'LM0FNINCNOI' });   
         }
     } catch (e) {
-        logger.error("Access attempt with invalid token");
-        res.send({ y8a3: 'LMOFNINCNOI' });
+        console.log(e.message)
+        res.send({ y8a3: '2' })
+        // logger.error("Access attempt with invalid token");
+        // res.send({ y8a3: 'LMOFNINCNOI' });
     }
 
 });

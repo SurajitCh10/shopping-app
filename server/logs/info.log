@@ -610,3 +610,2422 @@
   label: 'c-kart',
   timestamp: 'Jan-13-2023 16:18:43'
 }
+{
+  error: Error
+      at Query.run (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+      at /home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/sequelize.js:314:28
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async MySQLQueryInterface.select (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+      at async user.findAll (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1134:21)
+      at async user.findOne (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1228:12) {
+    name: 'SequelizeDatabaseError',
+    parent: SqlError: (conn=1376, no: 1146, SQLState: 42S02) Table 'c_kart.users' doesn't exist
+    sql: SELECT `id`, `name`, `email`, `address`, `password`, `token`, `admin`, `createdAt`, `updatedAt` FROM `users` AS `user` WHERE `user`.`email` = 'a@g.com' LIMIT 1; - parameters:[]
+        at module.exports.createError (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/misc/errors.js:57:10)
+        at PacketNodeEncoded.readError (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/io/packet.js:586:19)
+        at Query.readResponsePacket (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/cmd/parser.js:52:28)
+        at PacketInputStream.receivePacketBasic (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/io/packet-input-stream.js:76:9)
+        at PacketInputStream.onData (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/io/packet-input-stream.js:138:20)
+        at Socket.emit (node:events:513:28)
+        at addChunk (node:internal/streams/readable:324:12)
+        at readableAddChunk (node:internal/streams/readable:297:9)
+        at Readable.push (node:internal/streams/readable:234:10)
+        at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+      text: "Table 'c_kart.users' doesn't exist",
+      sql: "SELECT `id`, `name`, `email`, `address`, `password`, `token`, `admin`, `createdAt`, `updatedAt` FROM `users` AS `user` WHERE `user`.`email` = 'a@g.com' LIMIT 1;",
+      fatal: false,
+      errno: 1146,
+      sqlState: '42S02',
+      code: 'ER_NO_SUCH_TABLE',
+      parameters: undefined
+    },
+    original: SqlError: (conn=1376, no: 1146, SQLState: 42S02) Table 'c_kart.users' doesn't exist
+    sql: SELECT `id`, `name`, `email`, `address`, `password`, `token`, `admin`, `createdAt`, `updatedAt` FROM `users` AS `user` WHERE `user`.`email` = 'a@g.com' LIMIT 1; - parameters:[]
+        at module.exports.createError (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/misc/errors.js:57:10)
+        at PacketNodeEncoded.readError (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/io/packet.js:586:19)
+        at Query.readResponsePacket (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/cmd/parser.js:52:28)
+        at PacketInputStream.receivePacketBasic (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/io/packet-input-stream.js:76:9)
+        at PacketInputStream.onData (/home/hirak/Desktop/shopping-app/server/node_modules/mariadb/lib/io/packet-input-stream.js:138:20)
+        at Socket.emit (node:events:513:28)
+        at addChunk (node:internal/streams/readable:324:12)
+        at readableAddChunk (node:internal/streams/readable:297:9)
+        at Readable.push (node:internal/streams/readable:234:10)
+        at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+      text: "Table 'c_kart.users' doesn't exist",
+      sql: "SELECT `id`, `name`, `email`, `address`, `password`, `token`, `admin`, `createdAt`, `updatedAt` FROM `users` AS `user` WHERE `user`.`email` = 'a@g.com' LIMIT 1;",
+      fatal: false,
+      errno: 1146,
+      sqlState: '42S02',
+      code: 'ER_NO_SUCH_TABLE',
+      parameters: undefined
+    },
+    sql: "SELECT `id`, `name`, `email`, `address`, `password`, `token`, `admin`, `createdAt`, `updatedAt` FROM `users` AS `user` WHERE `user`.`email` = 'a@g.com' LIMIT 1;",
+    parameters: {}
+  },
+  level: 'error',
+  message: "uncaughtException: (conn=1376, no: 1146, SQLState: 42S02) Table 'c_kart.users' doesn't exist\n" +
+    "sql: SELECT `id`, `name`, `email`, `address`, `password`, `token`, `admin`, `createdAt`, `updatedAt` FROM `users` AS `user` WHERE `user`.`email` = 'a@g.com' LIMIT 1; - parameters:[]\n" +
+    'Error\n' +
+    '    at Query.run (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)\n' +
+    '    at /home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/sequelize.js:314:28\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async MySQLQueryInterface.select (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n' +
+    '    at async user.findAll (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1134:21)\n' +
+    '    at async user.findOne (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1228:12)',
+  stack: 'Error\n' +
+    '    at Query.run (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)\n' +
+    '    at /home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/sequelize.js:314:28\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async MySQLQueryInterface.select (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n' +
+    '    at async user.findAll (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1134:21)\n' +
+    '    at async user.findOne (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1228:12)',
+  exception: true,
+  date: 'Fri Jan 13 2023 16:53:07 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 86012,
+    uid: 1000,
+    gid: 1000,
+    cwd: '/home/hirak/Desktop/shopping-app/server',
+    execPath: '/snap/node/7065/bin/node',
+    version: 'v18.13.0',
+    argv: [
+      '/snap/node/7065/bin/node',
+      '/home/hirak/Desktop/shopping-app/server/src/index.js'
+    ],
+    memoryUsage: {
+      rss: 79331328,
+      heapTotal: 23093248,
+      heapUsed: 21123744,
+      external: 1031941,
+      arrayBuffers: 138406
+    }
+  },
+  os: { loadavg: [ 1.53, 1.04, 1.12 ], uptime: 23468.59 },
+  trace: [
+    {
+      column: 25,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/mariadb/query.js',
+      function: 'Query.run',
+      line: 53,
+      method: 'run',
+      native: false
+    },
+    {
+      column: 28,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/sequelize.js',
+      function: null,
+      line: 314,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 95,
+      method: 'processTicksAndRejections',
+      native: false
+    },
+    {
+      column: 12,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js',
+      function: 'async MySQLQueryInterface.select',
+      line: 407,
+      method: 'select',
+      native: false
+    },
+    {
+      column: 21,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js',
+      function: 'async user.findAll',
+      line: 1134,
+      method: 'findAll',
+      native: false
+    },
+    {
+      column: 12,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js',
+      function: 'async user.findOne',
+      line: 1228,
+      method: 'findOne',
+      native: false
+    }
+  ],
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:53:07'
+}
+{
+  message: 'Access Denied in register',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:53:31'
+}
+{
+  message: 'Access Denied in register',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:53:44'
+}
+{
+  message: 'Access Denied in register',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:53:45'
+}
+{
+  message: 'Access Denied in register',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:53:45'
+}
+{
+  message: 'New User Registered',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:54:09'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:54:17'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:54:17'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:54:54'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:55:04'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 16:55:04'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:02:03'
+}
+{
+  message: 'New User Registered',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:02:55'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:03:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:03:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:03:41'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:03:41'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:03:42'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:03:43'
+}
+{
+  error: Error: WHERE parameter "token" has invalid "undefined" value
+      at MariaDBQueryGenerator.whereItemQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1693:13)
+      at /home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1684:25
+      at Array.forEach (<anonymous>)
+      at MariaDBQueryGenerator.whereItemsQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1682:35)
+      at MariaDBQueryGenerator.getWhereConditions (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2025:19)
+      at MariaDBQueryGenerator.selectQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:954:28)
+      at MySQLQueryInterface.select (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:59)
+      at user.findAll (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1134:47)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async user.findOne (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1228:12),
+  level: 'error',
+  message: 'uncaughtException: WHERE parameter "token" has invalid "undefined" value\n' +
+    'Error: WHERE parameter "token" has invalid "undefined" value\n' +
+    '    at MariaDBQueryGenerator.whereItemQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1693:13)\n' +
+    '    at /home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1684:25\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at MariaDBQueryGenerator.whereItemsQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1682:35)\n' +
+    '    at MariaDBQueryGenerator.getWhereConditions (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2025:19)\n' +
+    '    at MariaDBQueryGenerator.selectQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:954:28)\n' +
+    '    at MySQLQueryInterface.select (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:59)\n' +
+    '    at user.findAll (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1134:47)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async user.findOne (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1228:12)',
+  stack: 'Error: WHERE parameter "token" has invalid "undefined" value\n' +
+    '    at MariaDBQueryGenerator.whereItemQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1693:13)\n' +
+    '    at /home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1684:25\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at MariaDBQueryGenerator.whereItemsQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1682:35)\n' +
+    '    at MariaDBQueryGenerator.getWhereConditions (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2025:19)\n' +
+    '    at MariaDBQueryGenerator.selectQuery (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:954:28)\n' +
+    '    at MySQLQueryInterface.select (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:59)\n' +
+    '    at user.findAll (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1134:47)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async user.findOne (/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js:1228:12)',
+  exception: true,
+  date: 'Fri Jan 13 2023 17:03:43 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 86792,
+    uid: 1000,
+    gid: 1000,
+    cwd: '/home/hirak/Desktop/shopping-app/server',
+    execPath: '/snap/node/7065/bin/node',
+    version: 'v18.13.0',
+    argv: [
+      '/snap/node/7065/bin/node',
+      '/home/hirak/Desktop/shopping-app/server/src/index.js'
+    ],
+    memoryUsage: {
+      rss: 74842112,
+      heapTotal: 24928256,
+      heapUsed: 22743744,
+      external: 983095,
+      arrayBuffers: 89560
+    }
+  },
+  os: { loadavg: [ 3.07, 2.13, 1.56 ], uptime: 24104.85 },
+  trace: [
+    {
+      column: 13,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js',
+      function: 'MariaDBQueryGenerator.whereItemQuery',
+      line: 1693,
+      method: 'whereItemQuery',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js',
+      function: null,
+      line: 1684,
+      method: null,
+      native: false
+    },
+    {
+      column: null,
+      file: null,
+      function: 'Array.forEach',
+      line: null,
+      method: 'forEach',
+      native: false
+    },
+    {
+      column: 35,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js',
+      function: 'MariaDBQueryGenerator.whereItemsQuery',
+      line: 1682,
+      method: 'whereItemsQuery',
+      native: false
+    },
+    {
+      column: 19,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js',
+      function: 'MariaDBQueryGenerator.getWhereConditions',
+      line: 2025,
+      method: 'getWhereConditions',
+      native: false
+    },
+    {
+      column: 28,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-generator.js',
+      function: 'MariaDBQueryGenerator.selectQuery',
+      line: 954,
+      method: 'selectQuery',
+      native: false
+    },
+    {
+      column: 59,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js',
+      function: 'MySQLQueryInterface.select',
+      line: 407,
+      method: 'select',
+      native: false
+    },
+    {
+      column: 47,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js',
+      function: 'user.findAll',
+      line: 1134,
+      method: 'findAll',
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 95,
+      method: 'processTicksAndRejections',
+      native: false
+    },
+    {
+      column: 12,
+      file: '/home/hirak/Desktop/shopping-app/server/node_modules/sequelize/lib/model.js',
+      function: 'async user.findOne',
+      line: 1228,
+      method: 'findOne',
+      native: false
+    }
+  ],
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:03:43'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:00'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:02'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:03'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:04'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:05'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:05'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:05'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:06'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:07'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:08'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:09'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:10'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:11'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:12'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:13'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:14'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:15'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:16'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:17'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:18'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:19'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:20'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:21'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:22'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:23'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:24'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:25'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:26'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:27'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:28'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:29'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:30'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:31'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:32'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:33'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:35'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:36'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:37'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:38'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:39'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:41'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:42'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:43'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:44'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:45'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:46'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:47'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:48'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:49'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:50'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:51'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:52'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:54'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:55'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:56'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:57'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:58'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:05:59'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:00'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:02'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:03'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:04'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:05'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:06'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:07'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:08'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:08'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:09'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:10'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:11'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:12'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:13'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:14'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:15'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:16'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:17'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:18'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:18'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:19'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:20'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:21'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:22'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:23'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:24'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:25'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:26'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:27'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:28'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:29'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:30'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:31'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:32'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:33'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:35'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:36'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:37'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:38'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:39'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:41'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:42'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:43'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:44'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:45'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:46'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:47'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:48'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:49'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:50'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:51'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:52'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:54'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:55'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:56'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:57'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:58'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:06:59'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:00'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:02'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:03'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:04'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:05'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:06'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:07'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:08'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:09'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:10'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:11'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:12'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:13'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:14'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:15'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:16'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:17'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:18'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:21'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:22'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:23'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:24'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:25'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:27'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:28'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:29'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:30'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:32'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:33'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:34'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:35'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:38'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:39'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:42'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:44'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:45'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:46'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:47'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:50'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:51'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:52'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:54'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:55'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:56'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:57'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:58'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:07:59'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:00'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:02'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:03'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:04'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:05'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:06'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:08'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:09'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:10'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:11'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:13'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:14'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:15'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:17'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:18'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:19'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:21'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:22'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:23'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:24'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:25'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:08:27'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:39'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:53'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:53'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:10:59'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:11:30'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:11:31'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:11:40'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:12:17'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:12:22'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:12:33'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:12:34'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:12:43'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:13:10'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:13:11'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:13:44'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:13:54'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:14:07'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:20:58'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:21:01'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:21:53'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:22:07'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:22:12'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:23:11'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:24:13'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:24:14'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:24:40'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:24:54'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:25:27'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:25:38'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:26:11'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:26:30'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:26:32'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:26:38'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:27:06'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:27:34'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:27:35'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:28:29'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:28:59'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:29:00'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:30:32'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:30:33'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:32:19'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:32:20'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:32:39'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:32:40'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:33:25'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:34:43'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:34:44'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:36:09'
+}
+{
+  message: 'Access attempt with invalid token',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:37:19'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:37:57'
+}
+{
+  error: ReferenceError: error is not defined
+      at /home/hirak/Desktop/shopping-app/server/src/routes.js:197:21
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5),
+  level: 'error',
+  message: 'uncaughtException: error is not defined\n' +
+    'ReferenceError: error is not defined\n' +
+    '    at /home/hirak/Desktop/shopping-app/server/src/routes.js:197:21\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  stack: 'ReferenceError: error is not defined\n' +
+    '    at /home/hirak/Desktop/shopping-app/server/src/routes.js:197:21\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  exception: true,
+  date: 'Fri Jan 13 2023 17:37:58 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 96448,
+    uid: 1000,
+    gid: 1000,
+    cwd: '/home/hirak/Desktop/shopping-app/server',
+    execPath: '/snap/node/7065/bin/node',
+    version: 'v18.13.0',
+    argv: [
+      '/snap/node/7065/bin/node',
+      '/home/hirak/Desktop/shopping-app/server/src/index.js'
+    ],
+    memoryUsage: {
+      rss: 81424384,
+      heapTotal: 23879680,
+      heapUsed: 21570392,
+      external: 1038660,
+      arrayBuffers: 145125
+    }
+  },
+  os: { loadavg: [ 1.47, 1.28, 1.33 ], uptime: 26159.13 },
+  trace: [
+    {
+      column: 21,
+      file: '/home/hirak/Desktop/shopping-app/server/src/routes.js',
+      function: null,
+      line: 197,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 95,
+      method: 'processTicksAndRejections',
+      native: false
+    }
+  ],
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:37:58'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:38:41'
+}
+{
+  error: ReferenceError: error is not defined
+      at /home/hirak/Desktop/shopping-app/server/src/routes.js:197:21
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5),
+  level: 'error',
+  message: 'uncaughtException: error is not defined\n' +
+    'ReferenceError: error is not defined\n' +
+    '    at /home/hirak/Desktop/shopping-app/server/src/routes.js:197:21\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  stack: 'ReferenceError: error is not defined\n' +
+    '    at /home/hirak/Desktop/shopping-app/server/src/routes.js:197:21\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  exception: true,
+  date: 'Fri Jan 13 2023 17:38:42 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 96749,
+    uid: 1000,
+    gid: 1000,
+    cwd: '/home/hirak/Desktop/shopping-app/server',
+    execPath: '/snap/node/7065/bin/node',
+    version: 'v18.13.0',
+    argv: [
+      '/snap/node/7065/bin/node',
+      '/home/hirak/Desktop/shopping-app/server/src/index.js'
+    ],
+    memoryUsage: {
+      rss: 80916480,
+      heapTotal: 22831104,
+      heapUsed: 21618072,
+      external: 1038660,
+      arrayBuffers: 145125
+    }
+  },
+  os: { loadavg: [ 1.44, 1.29, 1.33 ], uptime: 26203.71 },
+  trace: [
+    {
+      column: 21,
+      file: '/home/hirak/Desktop/shopping-app/server/src/routes.js',
+      function: null,
+      line: 197,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 95,
+      method: 'processTicksAndRejections',
+      native: false
+    }
+  ],
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:38:42'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-13-2023 17:41:17'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 15:39:35'
+}
+{
+  message: 'Access Denied in login',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 15:42:57'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 15:43:20'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 16:07:05'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 16:07:39'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 16:09:27'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 16:11:08'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 16:13:04'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 16:13:55'
+}
+{
+  message: 'Access Denied in login',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:41:44'
+}
+{
+  message: 'Access Denied in login',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:41:59'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:42:13'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:48:10'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:49:05'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:49:56'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:50:56'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:51:50'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:52:29'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:57:44'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 17:58:42'
+}
+{
+  message: 'Access Denied in login',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:18:50'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:19:02'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:22:21'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:23:14'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:23:39'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:30:55'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:30:59'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:30:59'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:33:52'
+}
+{
+  message: 'Access Denied in login',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:35:11'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:35:19'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:59:10'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:59:35'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:59:53'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:59:55'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 18:59:56'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:20:57'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:21:33'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:22:35'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:23:14'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:28:08'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:28:59'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:29:34'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:32:59'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:33:09'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:34:06'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:35:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:35:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:35:02'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:35:02'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:35:11'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:35:40'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:35:41'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:35:48'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:38:00'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:38:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:38:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:38:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:38:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:38:01'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:38:01'
+}
+{
+  message: 'Logged in',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:38:11'
+}
+{
+  message: 'User Logged out',
+  level: 'info',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:40:35'
+}
+{
+  message: 'Please Authenticate',
+  level: 'error',
+  label: 'c-kart',
+  timestamp: 'Jan-15-2023 19:40:36'
+}

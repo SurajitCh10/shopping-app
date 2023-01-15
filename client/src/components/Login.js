@@ -7,6 +7,8 @@ import Axios from "axios";
 import Cookies from "universal-cookie";
 import { message } from "antd";
 const {v4 : uuidv4} = require('uuid');
+import { emailValidator } from "./Validator";
+import { inputValidator } from "./Validator";
 
 function Login() {
   const cookies = new Cookies();
@@ -34,11 +36,11 @@ function Login() {
     setEmailError(false);
     setPasswordError(false);
 
-    if (email === "") {
+    if (!email.match(emailValidator)) {
       setEmailError(true);
       return;
     }
-    if (password === "") {
+    if (!password.match(inputValidator)) {
       setPasswordError(true);
       return;
     }
@@ -59,7 +61,7 @@ function Login() {
         message.success("Logged in successfully");
 
         cookies.set("token", response.data.token, { path: "/", maxAge: 900 });
-        
+
         if (response.data.token[3] === 'q' && response.data.token[4] === 'e' && response.data.token[5] === 'O') {
           setTimeout(function () {
             navigate(`/landing/${response.data.name}`);

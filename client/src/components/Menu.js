@@ -19,6 +19,7 @@ import Cookies from "universal-cookie";
 
 function Menus() {
 
+  const config = { headers: { "Content-Type": "application/json" } };
   const cookies = new Cookies();
   const navigate = useNavigate();
 
@@ -29,13 +30,20 @@ function Menus() {
 
       if(v === '1') {
         Axios.get('http://localhost:4000/check', {
-          token: cookies.get('token')
-        }).then((res) => {
+          token
+        },
+          config
+        ).then((res) => {
           if(res.data.y8a3 === 'LMOFNINCNOI') {
             cookies.remove('token');
             navigate("/login");
             window.location.reload();
-          }
+          } else if(res.data.y8a3 === '2')
+              alert('moi hoi');
+            else
+              alert('valid');
+        }).catch(() => {
+          alert(1);
         });
 
         v = 2;

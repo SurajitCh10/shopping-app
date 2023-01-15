@@ -158,8 +158,26 @@ function Upload() {
       <Navbar />
       <div className="menu row pt-4 mt-4 ml-3 pb-3">
         <form onSubmit={addToList}>
-          <input type='file' onChange={handleChange} />
-          <input type='submit' value='Upload File'/>
+        <input type="file" onChange={handleChange} />
+          {file &&
+          !(
+            file.name.endsWith(".jpg") ||
+            file.name.endsWith(".jpeg") ||
+            file.name.endsWith(".text") ||
+            file.name.endsWith(".png") ||
+            file.name.endsWith(".pdf") ||
+            file.name.endsWith(".doc")
+          ) ? (
+            <>
+              {window.confirm("Upload valid file type")
+                ? setFile(null)
+                : setFile(null)}{" "}
+            </>
+          ) : (
+            <></>
+          )}
+          {console.log(file)}
+          <input type="submit" value="Upload File" />
         </form>
 
         <Table columns={columns} dataSource={data} />
