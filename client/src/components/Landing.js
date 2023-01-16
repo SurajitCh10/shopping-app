@@ -18,7 +18,6 @@ function Landing() {
 
     useEffect(() => {
     
-    // console.log(token[3] === 'q' && token[4] === 'e' && token[5] === 'O')
         Axios.post('http://localhost:4000/check', {
         token: cookies.get('token')
       }).then((res) => {
