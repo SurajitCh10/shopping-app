@@ -104,28 +104,28 @@ function Upload() {
 
   const navigate = useNavigate();
 
-  var v = 1;
   const token = cookies.get('token');
+  const [valid, setValid] = useState(false)
 
     useEffect(() => {
 
-      if(v === '1') {
-        Axios.get('http://localhost:4000/check', {
-          token: cookies.get('token')
-        }).then((res) => {
-          if(res.data.y8a3 === 'LMOFNINCNOI') {
-            cookies.remove('token');
-            navigate("/login");
-            window.location.reload();
-          }
-        });
-
-        v = 2;
+    Axios.post('http://localhost:4000/check', {
+      token: cookies.get('token')
+    }).then((res) => {
+      if(res.data.y8a3 === 'LMOFNINCNOI') {
+        setValid(false)
+        navigate('/login');
+      }else{
+        setValid(true)
       }
+    }).catch(() => {
+      setValid(false)
+      navigate('/login');
+    });
 
       setInterval(() => {
         
-        if(!cookies.get('token')) {
+        if(!cookies.get('token')  || cookies.get('token') != token) {
           
           Axios.post('http://localhost:4000/logout', {
             token
@@ -154,7 +154,7 @@ function Upload() {
   }, []);
 
   return (
-    <>
+    valid?<>
       <Navbar />
       <div className="menu row pt-4 mt-4 ml-3 pb-3">
         <form onSubmit={addToList}>
@@ -183,7 +183,7 @@ function Upload() {
         <Table columns={columns} dataSource={data} />
 
       </div>
-    </>
+    </>:<></>
   );
 }
 

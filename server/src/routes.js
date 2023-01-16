@@ -85,7 +85,6 @@ router.post('/login', async(req, res) => {
 
                 user.update({
                     token,
-                    // session_Active: true
                 }, {
                     where: {
                         email: req.body.email
@@ -176,15 +175,15 @@ router.get('/view', async (req, res) => {
  
 });
 
-router.get('/check', async (req, res) => {
+router.post('/check', async (req, res) => {
 
     try {
         
-        console.log(req.body.token)
+        console.log(req.body)
 
         const User = await user.findOne({
             where: {
-                token
+                token: req.body.token
             }
         });
 
@@ -196,8 +195,7 @@ router.get('/check', async (req, res) => {
             res.send({ y8a3: 'LM0FNINCNOI' });   
         }
     } catch (e) {
-        console.log(e.message)
-        res.send({ y8a3: '2' })
+        res.status(400).send(e.message);
         // logger.error("Access attempt with invalid token");
         // res.send({ y8a3: 'LMOFNINCNOI' });
     }
