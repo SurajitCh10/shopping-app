@@ -9,7 +9,6 @@ const formidable = require('formidable');
 const {user} = require('../models');
 const checkEmail = require('../middleware/verifySignup');
 const authUser = require('../middleware/authUser');
-const uploadFile = require('../middleware/upload');
 const expressWinston = require("express-winston");
 const { transports, format } = require("winston");
 
