@@ -40,10 +40,25 @@ router.post("/register", checkEmail, async (req, res) => {
       .catch((e) => {
         if (e) console.log(e);
       });
-    logger.info("New User Registered");
     res.status(201).send({ message: "Registered !!", token });
+    logger.info(
+      "Registered. API Response - " +
+        "token: " +
+        token +
+        " message: Registered !!" +
+        " . API request - name: " +
+        req.body.name +
+        " email: " +
+        req.body.email +
+        " address: " +
+        req.body.address +
+        " password: " +
+        req.body.password +
+        " token: " +
+        token
+    );
   } catch (e) {
-    logger.error(`${e.message}` in register);
+    logger.error("Error in register . API Error - " + e.message);
     res.status(404).send(e.message);
   }
 });
@@ -76,49 +91,47 @@ router.post("/login", async (req, res) => {
 
         const check_admin = 1 ? User[0].admin : 0;
 
-        logger.info("Logged in");
         res.status(200).send({
           message: "Logged In !!",
           token,
           name: User[0].name,
           admin: check_admin,
         });
+        logger.info(
+          "Logged in. API Response - " +
+            "token: " +
+            token +
+            " message: Logged In !!" +
+            " name: " +
+            User[0].name +
+            " admin: " +
+            check_admin +
+            " . API request - email: " +
+            req.body.email +
+            " password: " +
+            req.body.password
+        );
       } else {
-        logger.error("Incorrect Password");
         res.status(400).send({ message: "Password Incorrect !!" });
+        logger.error(
+          "Incorrect Password. API request - " +
+            "Email " +
+            req.body.email +
+            " Password: " +
+            req.body.password
+        );
       }
     } else {
-      logger.error("User does not exist");
       res.status(404).send({ message: "User does not exist !!" });
+      logger.error(
+        "User does not exist. API request - email: " +
+          req.body.email +
+          " password: " +
+          req.body.password
+      );
     }
   } catch (e) {
-    logger.error(`${e.message}` in login);
-    res.status(400).send(e.message);
-  }
-});
-
-router.post("/isadmin", async (req, res) => {
-  try {
-    const User = await user.findOne({
-      where: {
-        token: req.body.token,
-      },
-    });
-
-    if (User) {
-      if (req.body.token === User.token) {
-        const check_admin = 1 ? User.admin : 0;
-
-        res.status(200).send({
-          admin: check_admin,
-        });
-      } else {
-        res.status(400).send({ message: "Cookie does not exist!!" });
-      }
-    } else {
-      res.status(404).send({ message: "Cookie does not exist!!" });
-    }
-  } catch (e) {
+    logger.error("Error in login . API Error - " + e.message);
     res.status(400).send(e.message);
   }
 });
@@ -136,15 +149,17 @@ router.post("/logout", authUser, async (req, res) => {
         },
       }
     );
-    logger.info("User Logged out");
+    logger.info("User Logged out. API request - token: " + req.body.token);
     res.status(200).send({ message: "Logged Out !!" });
   } catch (e) {
-    logger.error(e.message);
+    logger.error("API error in logout- " + e.message);
     res.status(400).send(e.message);
   }
 });
 
 router.post("/upload", async (req, res) => {
+  var fileName;
+
   try {
     const form = new formidable.IncomingForm();
 
@@ -160,13 +175,17 @@ router.post("/upload", async (req, res) => {
         const sqlQuery = "INSERT INTO assets (name, path) VALUES (?, ?)";
         pool.query(sqlQuery, [files.file.originalFilename, newPath]);
 
-        logger.info("File uploaded");
+        fileName = files.file.originalFilename;
+
+        logger.info("File uploaded . name - " + files.file.originalFilename);
         return res.send("Successfully uploaded");
       });
     });
   } catch (e) {
-    logger.error(e.message);
-    res.status(400).send(e);
+    logger.error(
+      "API Error in file upload- " + e.message + ". name: " + fileName
+    );
+    res.status(400).send(e.message);
   }
 });
 
@@ -176,8 +195,11 @@ router.get("/view", async (req, res) => {
     const result = await pool.query(sqlQuery);
 
     res.status(200).send(result);
+
+    // logger.info("File viewed . API Response - " + result);
   } catch (e) {
-    res.status(400).send(e);
+    logger.error("API Error in file view- " + e.message);
+    res.status(400).send(e.message);
   }
 });
 
