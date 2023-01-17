@@ -3,7 +3,7 @@ import "./Navbar.css";
 import logo from "../resources/CDAC.jpg";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
-import Axios from "axios";
+import Axios from "../axios";
 import Cookies from "universal-cookie";
 import { message } from "antd";
 
@@ -11,7 +11,7 @@ function Navbar() {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const addToList = () => {
-    Axios.post("http://localhost:4000/logout", {
+    Axios.post("/logout", {
       // withCredentials: true,
       // headers: {
       //   'Authorization': 'Bearer ' + cookies.get('token')

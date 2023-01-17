@@ -25,15 +25,12 @@ app.use(
     })
   );
 
-let csrf;
+let csrf, cnt;
 
 router.post('/register', checkEmail, async (req, res) => {
 
     try {
         
-        if(req.header('Authorization').replace('Bearer ', '') != csrf)
-            throw new Error('Access Denied');
-
         const token = uuidv4();
 
         const User = await user.create({
@@ -42,10 +39,6 @@ router.post('/register', checkEmail, async (req, res) => {
             address: req.body.address,
             password: req.body.password,
             token
-            
-            // session_Active: true
-        }).catch((e) => {
-            if(e) console.log(e);
         });
         logger.info("New User Registered");
         res.status(201).send({ message: "Registered !!", token });
@@ -59,8 +52,12 @@ router.post('/register', checkEmail, async (req, res) => {
 router.post('/login', async(req, res) => {
 
     try {
-        if(req.header('Authorization').replace('Bearer ', '') != csrf)
+
+        cnt++;
+
+        if(cnt >= 4 || req.header('Authorization').replace('Bearer ', '') != csrf) {
             throw new Error('Access Denied');
+        }
 
         // const User = await user.findOne({
         //     where: {
@@ -136,13 +133,18 @@ router.post('/upload', async(req, res) => {
 
         form.parse(req, (err, fields, files) => {
 
+            if(files.file.originalFilename.endsWith(".jpg") ||
+                files.file.originalFilename.endsWith(".jpeg") ||
+                files.file.originalFilename.endsWith(".text") ||
+                files.file.originalFilename.endsWith(".png") ||
+                files.file.originalFilename.endsWith(".pdf") ||
+                files.file.originalFilename.endsWith(".doc")) {
+
             var oldPath = files.file.filepath;
             var newPath = path.join(__dirname, 'assets') + '/' + files.file.originalFilename;
             var rawData = fs.readFileSync(oldPath);
     
             fs.writeFile(newPath, rawData, (err) => {
-        
-                if (err) console.log(err);
                 
                 const sqlQuery = 'INSERT INTO assets (name, path) VALUES (?, ?)';
                 pool.query(sqlQuery, [files.file.originalFilename, newPath]);
@@ -150,7 +152,8 @@ router.post('/upload', async(req, res) => {
                 logger.info("File uploaded");
                 return res.send("Successfully uploaded");
             });
-            
+        } else
+            throw new Error('Invalid file type');   
             
         });
     } catch (e) {
@@ -178,8 +181,6 @@ router.get('/view', async (req, res) => {
 router.post('/check', async (req, res) => {
 
     try {
-        
-        console.log(req.body)
 
         const User = await user.findOne({
             where: {
@@ -204,6 +205,7 @@ router.post('/check', async (req, res) => {
 
 router.get('/csrf', async (req, res) => {
     csrf = uuidv4();
+    cnt = 0;
     res.send({ 'csrf': csrf });
 });
 

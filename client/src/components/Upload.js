@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Navbar from "./Navbar";
 import "./Menu.css";
-import Axios from "axios";
+import Axios from "../axios";
 import { message, Table } from "antd";
 import Cookies from 'universal-cookie';
 import { useNavigate } from "react-router-dom";
@@ -47,7 +47,7 @@ function Upload() {
     e.preventDefault();
 
      Axios.post(
-      "http://localhost:4000/upload",
+      "/upload",
       {
         // token: cookies.get('token'),
         file
@@ -91,7 +91,7 @@ function Upload() {
   useEffect(() => {
     document.title = "Upload";
 
-    Axios.get("http://localhost:4000/view").then((res) => {
+    Axios.get("/view").then((res) => {
 
       for(let i = 0; i < res.data.length; i++)
         setData(data => [...data, res.data[i]]);
@@ -109,7 +109,7 @@ function Upload() {
 
     useEffect(() => {
 
-    Axios.post('http://localhost:4000/check', {
+    Axios.post('/check', {
       token: cookies.get('token')
     }).then((res) => {
       if(res.data.y8a3 === 'LMOFNINCNOI') {
@@ -127,7 +127,7 @@ function Upload() {
         
         if(!cookies.get('token')  || cookies.get('token') != token) {
           
-          Axios.post('http://localhost:4000/logout', {
+          Axios.post('/logout', {
             token
           }).then(() => {
             cookies.remove('token');
@@ -137,19 +137,6 @@ function Upload() {
 
         }
     }, 1000);
-
-    setInterval(() => {
-        
-      Axios.post('http://localhost:4000/check', {
-        token: cookies.get('token')
-      }).then((res) => {
-        if(res.data.y8a3 === 'LMOFNINCNOI') {
-          cookies.remove('token');
-          navigate("/login");
-          window.location.reload();
-        }
-      });
-    }, 2000);
 
   }, []);
 
@@ -176,7 +163,6 @@ function Upload() {
           ) : (
             <></>
           )}
-          {console.log(file)}
           <input type="submit" value="Upload File" />
         </form>
 

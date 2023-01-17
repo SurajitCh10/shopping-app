@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
-import Axios from "axios";
+import Axios from "../axios";
 import Cookies from "universal-cookie";
 
 function Landing() {
@@ -18,7 +18,7 @@ function Landing() {
 
     useEffect(() => {
     
-        Axios.post('http://localhost:4000/check', {
+        Axios.post('/check', {
         token: cookies.get('token')
       }).then((res) => {
         if(res.data.y8a3 === 'LMOFNINCNOI') {
@@ -43,7 +43,7 @@ function Landing() {
         
         if(!cookies.get('token')  || cookies.get('token') != token) {
           
-          Axios.post('http://localhost:4000/logout', {
+          Axios.post('/logout', {
             token
           }).then(() => {
             cookies.remove('token');

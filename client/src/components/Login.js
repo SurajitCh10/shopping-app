@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
-import Axios from "axios";
+import Axios from "../axios";
 import Cookies from "universal-cookie";
 import { message } from "antd";
 const {v4 : uuidv4} = require('uuid');
@@ -18,7 +18,7 @@ function Login() {
     document.title = "Login";
     cookies.set("token", uuidv4(), { path: "/" });
 
-    Axios.get('http://localhost:4000/csrf').then((res) => {
+    Axios.get('/csrf').then((res) => {
       setCsrf(res.data.csrf);
     }).catch((error) => {
       message.error(`${error.response.data.message}`);
@@ -48,10 +48,8 @@ function Login() {
     const config = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + csrf} };
     const cookies = new Cookies();
 
-    console.log(csrf)
-
     Axios.post(
-      "http://localhost:4000/login", {
+      "/login", {
         email: email,
         password: password
       },

@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Navbar from "./Navbar";
 import { useParams , useNavigate} from "react-router-dom";
-import Axios from "axios";
+import Axios from "../axios";
 import Cookies from "universal-cookie";
 
 const values = [
@@ -49,7 +49,7 @@ function Submenu() {
 
     useEffect(() => {
       
-    Axios.post('http://localhost:4000/check', {
+    Axios.post('/check', {
       token: cookies.get('token')
     }).then((res) => {
       if(res.data.y8a3 === 'LMOFNINCNOI') {
@@ -67,7 +67,7 @@ function Submenu() {
         
         if(!cookies.get('token')  || cookies.get('token') != token) {
           
-          Axios.post('http://localhost:4000/logout', {
+          Axios.post('/logout', {
             token
           }).then(() => {
             cookies.remove('token');
